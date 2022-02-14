@@ -7,6 +7,7 @@ import {
   FlatList,
   ActivityIndicator,
   Platform,
+  ScrollView,
 } from 'react-native';
 
 //Packages
@@ -62,7 +63,7 @@ const HistoryScreen = ({route, navigation}) => {
           color={Colors.LightBlue}
         />
       ) : (
-        <View style={styles.loaderContainer}>
+        <View style={styles.subContainer}>
           <Header title={data.nombre} navigation={navigation} />
           {historyList()}
         </View>
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     backgroundColor: Colors.PrimaryBlue,
-    paddingBottom: Platform.OS === 'ios' ? 120 : 0,
   },
   subContainer: {flex: 1},
 });

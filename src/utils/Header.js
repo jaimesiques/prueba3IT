@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 50 : 0,
+    marginTop: Platform.OS === 'ios' ? 50 : 15,
     marginBottom: 20,
     justifyContent: 'center',
   },

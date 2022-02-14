@@ -9,7 +9,12 @@ const useAxios = (setLoader) => {
   const getData = () => {
     let filteredData = [];
     axios
-      .get(`https://mindicador.cl/api`)
+      .get(`https://mindicador.cl/api`, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      })
       .then((res) => {
         Object.values(res.data).forEach((val) => {
           if (val.codigo !== undefined) {
@@ -27,7 +32,12 @@ const useAxios = (setLoader) => {
 
   const getDataDetail = (code) => {
     axios
-      .get(`https://mindicador.cl/api/${code}`)
+      .get(`https://mindicador.cl/api/${code}`, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      })
       .then((res) => {
         setData(res.data);
         setLoader(false);
