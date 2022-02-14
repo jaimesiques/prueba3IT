@@ -4,7 +4,7 @@ import {
   Text,
   View,
   ActivityIndicator,
-  Dimensions,
+  Platform,
 } from 'react-native';
 
 //Packages
@@ -90,7 +90,11 @@ const DetailScreen = ({route, navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  main: {flex: 1, backgroundColor: Colors.PrimaryBlue},
+  main: {
+    flex: 1,
+    backgroundColor: Colors.PrimaryBlue,
+    paddingBottom: Platform.OS === 'ios' ? 30 : 0,
+  },
   subContainer: {flex: 1},
   infoBoxContainer: {
     marginHorizontal: 10,

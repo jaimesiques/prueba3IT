@@ -6,11 +6,11 @@ import {
   View,
   FlatList,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 
 //Packages
 import axios from 'axios';
-import dayjs from 'dayjs';
 
 //Components
 import ListItem from './components/ListItem';
@@ -34,7 +34,6 @@ const HistoryScreen = ({route, navigation}) => {
   let historyList = () => {
     return (
       <FlatList
-        style={styles.flatList}
         data={data.serie}
         renderItem={({item}) => {
           return <ListItem data={item} />;
@@ -73,7 +72,11 @@ const HistoryScreen = ({route, navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  main: {flex: 1, backgroundColor: Colors.PrimaryBlue},
+  main: {
+    flex: 1,
+    backgroundColor: Colors.PrimaryBlue,
+    paddingBottom: Platform.OS === 'ios' ? 120 : 0,
+  },
   subContainer: {flex: 1},
 });
 

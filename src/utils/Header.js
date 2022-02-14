@@ -5,6 +5,7 @@ import {
   Image,
   StatusBar,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import React from 'react';
 
@@ -15,7 +16,7 @@ import Colors from '../styles/Colors';
 export default function Header({title, navigation}) {
   return (
     <View style={styles.mainContainer}>
-      <StatusBar backgroundColor={Colors.DarkGray} />
+      <StatusBar backgroundColor={Colors.DarkGray} barStyle="light-content" />
       {title !== 'Indicadores Económicos' ? (
         <TouchableOpacity
           style={styles.backButtonContainer}
@@ -38,7 +39,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 20,
+    marginTop: Platform.OS === 'ios' ? 50 : 0,
+    marginBottom: 20,
     justifyContent: 'center',
   },
   backButtonContainer: {

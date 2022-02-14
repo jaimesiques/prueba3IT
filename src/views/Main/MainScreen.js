@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, FlatList, ActivityIndicator} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  ActivityIndicator,
+  Platform,
+} from 'react-native';
 
 //Packages
 import GetLocation from 'react-native-get-location';
@@ -81,7 +87,11 @@ const MainScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  main: {flex: 1, backgroundColor: Colors.PrimaryBlue},
+  main: {
+    flex: 1,
+    backgroundColor: Colors.PrimaryBlue,
+    paddingBottom: Platform.OS === 'ios' ? 30 : 0,
+  },
   subContainer: {flex: 1},
   item_line: {height: 1, width: '100%', backgroundColor: 'gray'},
   loaderContainer: {flex: 1},
